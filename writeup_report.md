@@ -43,7 +43,7 @@ You're reading it!  All code referenced in this write-up is located in the IPyth
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
-The code for this step is contained in the "Step 1" Section code cells of the [[Python notebook][notebook].  The function `cal_undistort()` implements the undistortion on the image.
+The code for this step is contained in the "Step 1" Section code cells of the [IPython notebook][notebook].  The function `cal_undistort()` implements the undistortion on the image.
 
 I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.
 
@@ -67,7 +67,7 @@ Highlighting the lines is in "Step 3" of the [notebook][notebook].  The function
 
 To start, I defined a number of threshold functions to allow tweaking of different features of the image.  Not all of the functions were used in the submitted version; however, additional tweaking could be done for using these for the challenge videos and other conditions.
 
-In the end, I used a combination of color thresholds on Hue and Saturation to bring out the yellow and a combination of Sobel-lines x, y, magnitide, and direction which seemed to highlight the white well.
+In the end, I used a combination of color thresholds on Hue and Saturation to bring out the yellow and a combination of Sobel-lines x, y, magnitude, and direction which seemed to highlight the white well.
 
 ![alt text][image3]
 
@@ -75,7 +75,7 @@ In the end, I used a combination of color thresholds on Hue and Saturation to br
 
 The code for my perspective transform is in Step 2 of the [notebook][notebook].  It includes two functions called `warp()` and `unwarp()`, which which create warped/unwarped output for binary or color images.
 
-I used one of the straight-line images to find four points that could represented a rectangle in top-down view manually using photo editing software (Pinta).  I drew two horizontal lines near and far and the road and identified the related points:
+I used one of the straight-line images to find four points that could represent a rectangle in top-down view manually using photo editing software (Pinta).  I drew two horizontal lines near and far and the road and identified the related points:
 
 This resulted in the following source and destination points:
 
@@ -104,13 +104,13 @@ Here's a sample output of the boxes, along with colorization for the points used
 ![alt text][image5]
 
 ##### Starting the Line() Class
-Now that I have the basic coefficents for a simple curve that can be found on the first image of a video, these can used to create a `Line()` class and establish an object for each line in the image/video pipeline.
+Now that I have the basic coefficients for a simple curve that can be found on the first image of a video, these can used to create a `Line()` class and establish an object for each line in the image/video pipeline.
 
 This is much like sliding boxes, except the window is only 1 pixel tall and the starting center is from the equation of the line.  As noted in the last section below, this has some downsides.  
 
 Step 5 in the [notebook][notebook] implements the new class and within that class, the `set_new_line()` method recalculates the new line based on the updated warped-binary image.  
 
-While the code to find the line is in Step 5, the code to demonstrate the result is in Step 6 of the [notebook][notebook], where I started to generate code for the video pipepline as well.  Here's example of lines found from the video using previous fit:
+While the code to find the line is in Step 5, the code to demonstrate the result is in Step 6 of the [notebook][notebook], where I started to generate code for the video pipeline as well.  Here's example of lines found from the video using previous fit:
 
 ![alt text][image6]
 
