@@ -1,6 +1,11 @@
 
 # **Advanced Lane Finding Project**
 
+>**Resubmission edit:**
+>The first gap addressed was not putting the curve radius on the video.  Getting the text on the screen was a relatively easy edit; however, this brought out errors in the curve code and scaling.  It also created a difficult to find global variable issue (bad, bad global variables).
+>  
+>Those items fixed, it was a matter of adding new code to identify when there are outliers in the found line coefficients and creating a "reset" to keep the lines from going off track.  Finally, I made some minor tweaks to the color filtering to better highlight the left line in some situations.
+
 The goals / steps of this project are the following:
 
 * Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
@@ -14,15 +19,15 @@ The goals / steps of this project are the following:
 
 [//]: # (Image/Link References)
 
-[image1]: ./writeup_images/undistorted_board.png "Undistorted"
-[image2]: ./writeup_images/undistorted_road.png "Road Transformed"
-[image3]: ./writeup_images/binary.png "Binary Example"
-[image4]: ./writeup_images/warped.png "Warp Example"
-[image5]: ./writeup_images/sliding_boxes.png "Sliding Boxes"
-[image6]: ./writeup_images/found_lines.png "Found Lines Method"
-[image7]: ./writeup_images/painted_lane.png "Painted Lane"
-[radius_eq]: ./writeup_images/radiuseq.png "Radius Equation"
-[eq3]: ./writeup_images/eq3.png "Final conversion"
+[image1]: ./output_images/undistorted_board.png "Undistorted"
+[image2]: ./output_images/undistorted_road.png "Road Transformed"
+[image3]: ./output_images/binary.png "Binary Example"
+[image4]: ./output_images/warped.png "Warp Example"
+[image5]: ./output_images/sliding_boxes.png "Sliding Boxes"
+[image6]: ./output_images/found_lines.png "Found Lines Method"
+[image7]: ./output_images/painted_lane.png "Painted Lane"
+[radius_eq]: ./output_images/radiuseq.png "Radius Equation"
+[eq3]: ./output_images/eq3.png "Final conversion"
 [video1]: ./project_video.mp4 "Video"
 
 [notebook]: (https://github.com/Jazzbert/CarND-Advanced-Lane-Lines/blob/master/CarND-AdvancedLaneFinding.ipynb)
